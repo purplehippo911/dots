@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+# Join ALL args with spaces → "1 + 1 + 1 * 2"
+expr="${(j: :)@}"
+
+# Validate: odd number of args (num op num op num...)
+[[ $(( $# % 2 )) -eq 1 ]] || { 
+    notify-send "Error" "Usage: calc 1 + 1 + 1 * 2" 
+    exit 1 
+}
+
+# bc with high precision
+result=$(echo "scale=10; $expr" | bc -l 2>/dev/null)
+
+[[ -z $result || $result == *"runtime error" ]] && {
+    notify-send "Error" "Invalid: $expr" 
+    exit 1 
+}
+
+notify-send "Calc" "$expr = $result" -t 5000

@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+set -e
+
+if [[ $# -lt 0  ]]; then
+	echo -e "\n Usage: mkcd <name of new directory>  \n"
+	exit 1
+else
+	mkdir $1 && cd $1
+	echo -e "\n Directory successfully made \n "
+fi

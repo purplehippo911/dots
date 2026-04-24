@@ -1,0 +1,3 @@
+- belive the microoven montage might rush through the part showin ghim annoy
+- maybe use radio instead of microoven
+- cut panic room ep and add important part throughout plt.

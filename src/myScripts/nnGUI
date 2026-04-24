@@ -1,0 +1,16 @@
+#!/bin/bash
+# new note script
+
+# path
+NOTE_PATH='/home/astro/inbox/inbox.md'
+
+if [[ $# -lt 1  ]]; then
+	echo "Right usage: nn '<text that you want added>'"
+	exit
+fi
+# idea: newnote 'this or that xyz'
+# # send to existing note most the time.
+
+echo "- $1"  >> $NOTE_PATH
+
+notify-send "note added"

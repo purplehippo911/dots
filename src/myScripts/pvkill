@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [[ $(protonvpn config list | grep kill-switch | awk '{print $2}') == "standard" ]]; then
+	echo -e "\n Killswitch is ON"
+else
+	echo -e "\n Killswitch is OFF"
+fi
+
+sleep 1
+
+echo -e "\n Turn it on?(y/n): \n"
+
+read CHOICE
+
+if [[ $CHOICE == "y" ]]; then
+	if [[ $(protonvpn config list | grep standard | awk '{print $2}') == "standard" ]]; then
+		echo -e "\n already on"
+	else
+		protonvpn config set kill-switch standard
+	fi
+	exit 0
+else
+	if [[ $(protonvpn config list | grep kill-switch | awk '{print $2}') == "off" ]]; then
+		echo -e "\n Your kill-switch is already off"
+	else
+		protonvpn config set kill-switch off
+	fi
+	exit 0
+fi
+	

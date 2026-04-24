@@ -1,0 +1,15 @@
+- whafdsa
+	- hedonism and power is most time what motivates apsychpath
+	- follow the hare checklist for seeing if ur character is psycho
+	- psychopaths arent always killers. but more likely to be violent and do immoral ways as long as it benefits them. so lawyers or neigbhours etc. people you can meet in real life or people in power.
+	- can have a few people they like or respect
+	- prefers hiding among others. and copying people.
+	- some are narcisists like bateman. not capable of having own expressiveness or identity and copying others to fit in or be superior.
+	- motivation? hedonism? power? gambling? music? drg, slbs, murder, crime etc. what else.
+	- carer more abuot: power, hedonism, self-direction, achievment, stimulaiton, 
+	- less about: universalism, benevolence, conformity, tradition, security
+	- usually dont care about internal stuff or motivation. dont care about internal feelings, self-image, self-actualisation, chasing a better you. theyre externally moivated usually. doesnt care about slef-esteem.
+	- highly prone o aking revenge.
+	- usually higlhy materialistic
+	- willy ownkas hte best psychopathic fictional character.
+	- theres always exceptions. depends on their circumstances and how they grew up.gives u wiggle room. dont have to check every box.

@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+# kitty tmux vim '/home/astro/dev/'
+
+cd /home/astro/dev
+tmux new-session -d -s coding
+tmux send-keys -t coding:0.0 'vim /home/astro/dev/setup.md' Enter
+kitty -e tmux attach-session -t coding

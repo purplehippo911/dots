@@ -1,0 +1,146 @@
+# Autostart apps
+#exec-once = waybar
+#exec-once = hyprpaper --restore  # wallpaper
+#exec-once = wl-paste --type text --watch cliphist store  # Clipboard (text)
+#exec-once = wl-paste --type image --watch cliphist store  # Clipboard (images)
+#exec-once = nm-applet
+#exec-once = dunst # Notifications
+#exec-once = hyde-shell
+#exec-once = hypridle
+#exec-once = hyprsunset  # Dimming/scheduler (HyDE-specific)
+#exec-once = wireplumber  # Pipewire session manager (usually auto)
+#exec-once = wallbash  # Wallpaper daemon (HyDE)
+#exec-once = hydectl  # HyDE controller?
+#exec-once = aww  # Wallpaper daemon
+exec-once = pkill tmux
+exec-once = nvim ~/inbox/inbox.md
+exec-once = protonvpn disconnect && protonvpn config set kill-switch standard && sleep 1
+exec-once = protonvpn connect
+
+source = ~/.config/hypr/userprefs.conf
+
+general {
+
+    layout = master
+
+}
+
+
+master {
+    mfact = 0.618
+    new_status = slave
+    orientation = left
+    new_on_top = true
+}
+
+# variables
+$mainMod = SUPER
+$TERMINAL = kitty
+$BROWSER = flatpak run com.brave.Browser
+$EDITOR = Vim
+$FILEEXPLORER = dolphin
+$DISCORD = io.github.spacingbat3.webcord
+
+# Window management (Closing app, fullscreen mode, selecting focus, and resize)
+bind = $mainMod, Q, exec, hyde-shell dontkillsteam
+bind = Mod5, Return, fullscreen 
+
+bind = $mainMod, L, movefocus, r
+bind = $mainMod, H, movefocus, l
+bind = $mainMod, K, movefocus, u
+bind = $mainMod, J, movefocus, d
+
+bindl  = , XF86AudioMute, exec, hyde-shell volumecontrol -o m # toggle audio mute
+bindl = , XF86AudioMicMute, exec, hyde-shell volumecontrol -i m # toggle microphone mute
+bindel = , XF86AudioLowerVolume, exec, hyde-shell volumecontrol -o d # decrease volume
+bindel = , XF86AudioRaiseVolume, exec, hyde-shell volumecontrol -o i # increase volume
+ 
+binde = $mainMod shift, L, resizeactive, 30 0
+binde = $mainMod shift, H, resizeactive, -30 0
+binde = $mainMod shift, K, resizeactive, 0 -30
+binde = $mainMod shift, J, resizeactive, 0 30
+
+$moveactivewindow=grep -q "true" <<< $(hyprctl activewindow -j | jq -r .floating) && hyprctl dispatch moveactive
+binde = $mainMod Shift Control, left, exec, $moveactivewindow  -30 0 || hyprctl dispatch movewindow l
+binde = $mainMod Shift Control, right, exec, $moveactivewind ow 30 0 || hyprctl dispatch movewindow r
+binde = $mainMod Shift Control, up, exec, $moveactivewindow  0 -30 ||   hyprctl dispatch movewindow u
+binde = $mainMod Shift Control, down, exec, $moveactivewindow 0 30 || hyprctl dispatch movewindow d
+
+# Move/Resize focused window
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+bindm = $mainMod, Z, movewindow
+#bindm = $mainMod, X, resizewindow
+
+# Brightness 
+bindel = , XF86MonBrightnessUp, exec, hyde-shell brightnesscontrol i # increase brightness
+bindel = , XF86MonBrightnessDown, exec, hyde-shell brightnesscontrol d # decrease brightness
+# APPS
+bind = $mainMod, Space, exec, rofi -show drun || pkill -x rofi
+bind = $mainMod, W, exec, kitty tmux 
+bind = $mainMod, F, exec, $BROWSER
+bind = $mainMod, E, exec, $FILEEXPLORER
+bind = $mainMod, P, exec, aiSession
+bind = $mainMod, O, exec, kitty nvim '/home/astro/inbox/inbox.md' 
+bind = $mainMod, A, exec, kitty nvim '/home/astro/.config/hypr/hyprland.conf'
+bind = $mainMod, N, exec, echo "" | rofi -dmenu -p "Add note" -l 0 | xargs nnGI
+bind = $mainMod, B, exec, bolusCalcGUI 
+bind = $mainMod, X, exec, echo "" | rofi -dmenu -p "Calculate" -l 0 | xargs calc
+bind = $mainMod, M, exec, mkdevGUI 
+bind = $mainMod, C, exec, devPrep
+bind = $mainMod Shift, C, exec, newDevProj
+bind = $mainMod, D, exec, $DISCORD 
+
+bind = , XF86Favorites, exec, pkill -x rofi || rofi -show filebrowser
+bind = , XF86Keyboard, exec, pkill -x rofi || hyde-shell keybinds_hint c # launch keybinds hint
+bind = $mainMod, comma, exec, pkill -x rofi || hyde-shell emoji-picker # launch emoji picker
+bind = $mainMod, period, exec, pkill -x rofi || hyde-shell glyph-picker # launch glyph picker
+bind = $mainMod, V, exec, pkill -x rofi || hyde-shell cliphist -c # launch clipboard,
+
+bind = $mainMod, S, exec, hyde-shell lock-session
+
+bind = Control Shift, Escape, exec, hyde-shell system.monitor
+
+# Utilities
+bind = $mainMod Shift, P, exec, hyprpicker -an # Pick color (Hex) >> clipboard#
+#bind = $mainMod, P, exec, hyde-shell screenshot s # partial screenshot capture
+bind = $mainMod Control, P, exec, hyde-shell screenshot sf # partial screenshot capture (frozen screen)
+bindl = $mainMod Alt, P, exec, hyde-shell screenshot m # monitor screenshot capture
+bindl = , Print, exec, hyde-shell screenshot p  # all monitors screenshot capture
+
+# window
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 9, workspace, 9
+bind = $mainMod, 0, workspace, 10
+ 
+bind = $mainMod Control, L, workspace, r+1
+bind = $mainMod Control, H,  workspace, r-1
+
+bind = $mainMod Control, J, workspace, empty
+
+# Move focused window to a workspace
+bind = $mainMod Shift, 1, movetoworkspace, 1
+bind = $mainMod Shift, 2, movetoworkspace, 2
+bind = $mainMod Shift, 3, movetoworkspace, 3
+bind = $mainMod Shift, 4, movetoworkspace, 4
+bind = $mainMod Shift, 5, movetoworkspace, 5
+bind = $mainMod Shift, 6, movetoworkspace, 6
+bind = $mainMod Shift, 7, movetoworkspace, 7
+bind = $mainMod Shift, 8, movetoworkspace, 8
+bind = $mainMod Shift, 9, movetoworkspace, 9
+bind = $mainMod Shift, 0, movetoworkspace, 10
+
+# fix button f8 to discnnect internet, and one for bluetooth, one for keyboard layout, one for settings or rofi, and then do something with the toggle window f7 and f12. for f7 maybe switch window or toggle screen. or let it be. and for keyboar dshow keybinds and f9 either settings or rofi, and for star toggle or special logout i suppose
+
+
+bindl = , XF86Bluetooth, exec, bluetoothctl power $(bluetoothctl show | grep Powered | awk '{print $2}' | sed 's/yes/off/;/no/d;/off/d;s/^/on/')
+bindl = , XF86Internet, exec, nmcli radio wifi $(nmcli radio wifi | awk 'NR==2{print $1=="enabled"?"off":"on"}')
+bindl = , XF86Tools, exec, pkill -x rofi || rofi -show run
+bindl = , XF86Display, exec, kitty mosh 'astro@10.0.0.17'

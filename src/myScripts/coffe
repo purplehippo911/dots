@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+if pgrep -x caffeine > /dev/null; then 
+	killall caffeine
+	notify-send "Caffeine turned OFF"
+else
+	notify-send "Caffeine turned ON"
+	caffeine
+fi
+
+

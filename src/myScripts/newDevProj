@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+PROJECT_NAME=$(rofi -dmenu -p "Folder name" -l 0)
+
+if [[ -z "$PROJECT_NAME" ]]; then
+  	notify-send "Error" "Enter name"
+	exit 1
+fi
+
+notify-send "$PROJECT_NAME"
+
+CURRENT_DIRECTORY="/home/astro/dev/$PROJECT_NAME"
+
+sudo mkdir $CURRENT_DIRECTORY 
+
+sudo chown astro:astro $CURRENT_DIRECTORY 
+
+sudo chmod +dw $CURRENT_DIRECTORY
+
+sudo cd $CURRENT_DIRECTORY
+
+#tmux new-session -d -s "$CURRENT_DIRECTORY" 
+#tmux send-keys -t coding:0.0 "vim $CURRENT_DIRECTORY" Enter
+#exec kitty -e tmux attach-session -t "$CURRENT_DIRECTORY" 
+
+exec kitty -e tmux new-session -s "$PROJECT_NAME" -c "$CURRENT_DIR" "zsh -c 'vim $CURRENT_DIRECTORY'"

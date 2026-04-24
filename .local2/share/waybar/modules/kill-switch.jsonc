@@ -1,0 +1,10 @@
+{
+        "custom/kill-switch": 
+        {
+                "exec": "~/.config/waybar/scripts/killswitch-status.sh",
+                "interval": 5,
+                "format": "{text} {icon}",
+                "return-type": "json",
+                "on-click": "~/.config/waybar/scripts/killswitch-check.sh"
+        }
+}

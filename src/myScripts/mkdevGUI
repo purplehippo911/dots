@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+# $0 inputs the path of the file
+
+#[[ $# -eq 0 ]] && { 
+ #  notify-send "ERROR" "Usage: mkdev <script name>"
+  # exit 1
+#}
+
+Input=$(echo "" | rofi -dmenu -p "Enter command name" -l 0) 
+
+SCRIPT_PATH="/usr/local/bin/$Input"
+
+sudo echo -e "#!/bin/zsh\n" | sudo tee "$SCRIPT_PATH" >/dev/null 
+
+sudo chmod +wx "$SCRIPT_PATH"
+sudo chown astro "$SCRIPT_PATH"
+
+kitty vim "$SCRIPT_PATH"
+
+notify-send "Script created: $SCRIPT_PATH"

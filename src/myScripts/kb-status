@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+BRIGHTNESS=$(sudo cat /sys/class/leds/tpacpi::kbd_backlight/brightness)
+
+if [[ $BRIGHTNESS == "0"  ]]; then 
+	notify-send '{"text": "K0", "tooltip":"Keyboard brightness is at 0%", "class": "kb-light" }'
+elif [[ $BRIGHTNESS == "1" ]]; then 
+	notify-send '{"text": "K-50%", "tooltip": "Keyboard brightness is at 50%", "class": "kb-light"}'
+else 
+	notify-send '{"text": "K-100%", "tooltip": "Keyboard brightness is at 100%", "class": "kb-light"}'
+fi

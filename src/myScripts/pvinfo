@@ -1,0 +1,42 @@
+#!/bin/bash
+
+lnBreak(){
+	
+  echo -e "\n"
+
+}
+
+if nmcli connection show --active | grep wireguard > /dev/null 2>&1 ; then
+	lnBreak
+	echo -e "VPN is ON \n"
+
+	sleep 2
+
+	read -p "Do you want to turn it off? (y/n): " CHOICE
+	
+	if [[ $CHOICE == "y" ]]; then
+		protonvpn disconnect
+		lnBreak
+		echo -e "VPN is turned OFF \n"
+	else
+		lnBreak
+		echo -e "VPN will stay ON \n"
+	fi	
+
+	exit 0
+else
+	lnBreak
+	echo -e "VPN IS OFF. \n"
+	
+	read -p "Do you want to turn it on?(y/n): " CHOICE2
+
+	if [[ $CHOICE2 == "y" ]]; then
+		lnBreak
+		protonvpn connect
+	else
+		lnBreak
+		echo -e "VPN will stay OFF \n"
+	fi
+	
+	exit 0
+fi
