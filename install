@@ -20,7 +20,7 @@ echo "\nDone moving files into home\n"
 
 echo "\nDownloading through pacman...\n"
 
-sudo pacman -S zsh brightnessctl networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync timeshift ollama fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox hypremoji discord komikku copyq qt6-declarative qt6-svg qt6-quickcontrols2
+sudo pacman -S zsh brightnessctl networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync timeshift ollama fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce4 vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox discord komikku copyq qt6-declarative qt6-svg qt6-base
 
 echo "\nDone with pacman\n"
 
@@ -31,7 +31,7 @@ cd yay
 makepkg -si
 
 echo "\nDownlading through yay\n"
-yay -S brave-bin caffeine-ng-git wlogout webcord-equicord-git
+yay -S brave-bin caffeine-ng-git wlogout webcord-equicord-git hypremoji
 echo "Done with yay\n"
 
 echo "\nDownloading paru\n"
