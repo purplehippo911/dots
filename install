@@ -31,7 +31,7 @@ cd yay
 makepkg -si
 
 echo "\nDownlading through yay\n"
-yay -S brave-bin caffeine-ng-git wlogout webcord-equicord-git hypremoji
+yay -S aether brave-bin caffeine-ng-git wlogout webcord-equicord-git hypremoji
 echo "Done with yay\n"
 
 echo "\nDownloading paru\n"
