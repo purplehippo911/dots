@@ -20,7 +20,7 @@ echo "\nDone moving files into home\n"
 
 echo "\nDownloading through pacman...\n"
 
-sudo pacman -S eza exa zsh brightnessctl networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync timeshift ollama fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce4 vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox discord komikku copyq qt6-declarative qt6-svg qt6-base
+sudo pacman -S	expac gdu qt6-virtualkeyboard eza exa zsh brightnessctl networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync timeshift ollama fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce4 vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox discord komikku copyq qt6-declarative qt6-svg qt6-base
 
 echo "\nDone with pacman\n"
 
@@ -98,6 +98,9 @@ echo "setting up font for kitty"
 echo 'font_family JetBrainsMono Nerd Font Mono' >> ~/.config/kitty/kitty.conf
 echo 'font_size 12' >> ~/.config/kitty/kitty.conf
 
+# enabling sddm
+echo "\n enabling sddm\n"
+sudo systemctl enable sddm
 echo "done with downloading and setting up fonts"
 
 echo "I highly recommend you to setup timeshift yourself"
