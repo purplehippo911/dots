@@ -4,10 +4,6 @@ echo "\nBefore running this app you need sudo downloaded or have root privileges
 
 sleep 3
 
-sudo pacman -S networkmanager
-systemctl start NetworkManager.service
-systemctl enable NetworkManager.service
-
 echo "\nmaking fish the default shell\n"
 sudo pacman -Syu
 sudo pacman -S fish
