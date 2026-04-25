@@ -7,6 +7,8 @@ if test $status -eq 1
   exit error
 end
 
+# moving all files inside dots out into home directory?
+
 echo "Downloading..."
 
 sudo pacman -Syyu hyprland yay qbittorrent nwg-look gimp inkscape mission-center imv hyprlock cliphist proton-vpn-cli dunst hypridle hyprsunset wireplumber pipewire tmux openssh mosh git github-cli glab zsh blueman bash wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make sudo rsync timeshift ollama fzf nodejs pnpm networkmanager waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim steam vlc xfce4-terminal network-manager-applet wallbash flameshot shotcut audacity awww blender krita kdeconnect pipewire virtualbox
@@ -24,3 +26,5 @@ rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+
+#mving .config folders and .local folder into right spot and deleting old ones
