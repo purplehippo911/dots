@@ -59,7 +59,7 @@ git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 echo "Done downloading nvim plugin"
 
 echo "moving custom scripts to /usr/local/bin"
-mv src/myScripts/* /usr/local/bin
+mv ~/src/myScripts/* /usr/local/bin
 
 echo "done moving custom scripts to /usr/local/bin"
 
@@ -84,10 +84,6 @@ gsettings set org.gnome.desktop.interface font-name 'JetBrainsMono Nerd Font Reg
 # GTK2 (older apps)
 echo "setting up font for GTK2 apps"
 echo "gtk-font-name=JetBrainsMono Nerd Font Regular 11" >> ~/.gtkrc-2.0
-
-# Per-session (temporary)
-echo "setting up font for QT apps"
-QT_FONT_NAME="JetBrainsMono Nerd Font Regular 11" your-qt-app
 
 # Permanent (Fish config.fish)
 echo 'set -gx QT_FONT_NAME "JetBrainsMono Nerd Font Regular 11"' >> ~/.config/fish/config.fish
