@@ -20,7 +20,7 @@ echo "\nDone moving files into home\n"
 
 echo "\nDownloading through pacman...\n"
 
-sudo pacman -S zsh brightnessctl networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync timeshift ollama fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce4 vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox discord komikku copyq qt6-declarative qt6-svg qt6-base
+sudo pacman -S eza exa zsh brightnessctl networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync timeshift ollama fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce4 vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox discord komikku copyq qt6-declarative qt6-svg qt6-base
 
 echo "\nDone with pacman\n"
 
@@ -64,12 +64,17 @@ sudo mv ~/src/myScripts/* /usr/local/bin
 echo "done moving custom scripts to /usr/local/bin"
 
 # use own config hyrp
+[ ! -d ~/.config/hypr ] && mkdir -p ~/.config/hypr
 cp -r ~/components/hypr/{hyprland.conf,scripts} ~/.config/hypr
 
 # waybar config of the modular ones
+[ ! -d ~/.local/share/waybar] && mkdir -p ~/.local/share/waybar
+
 cp -r ~/components/waybar ~/.local/share/waybar
 
 # waybar component
+[ ! -d ~/.config/waybar] && mkdir -p ~/.config/waybar
+
 cp -r ~/components/waybar2 ~/.config/waybar
 
 echo "installed waybar"
