@@ -1,23 +1,21 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
+
+set -e
 
 echo "\nBefore running this app you need sudo downloaded or have root privileges"
 
 sleep 3
 
-echo "\nmaking fish the default shell\n"
 sudo pacman -Syu
-sudo pacman -S fish
-chsh -s /usr/bin/fish
 mv config.fish ~/.config/fish/config.fish
 sleep 2
-exec fish
 
 echo "\nDone with fish\n"
 
 # moving all files inside dots out into home directory?
 echo "\nMoving files into home\n"
 shopt -s dotglob; mv ./* ../
-mv ./* ../
+
 echo "\nDone moving files into home\n"
 
 echo "\nDownloading through pacman...\n"
@@ -25,6 +23,12 @@ echo "\nDownloading through pacman...\n"
 sudo pacman -S zsh brightnessctl networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync timeshift ollama fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox hypremoji discord komikku copyq qt6-declarative qt6-svg qt6-quickcontrols2
 
 echo "\nDone with pacman\n"
+
+echo "\ndownloading yay \n"
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
 
 echo "\nDownlading through yay\n"
 yay -S brave-bin caffeine-ng-git wlogout webcord-equicord-git
@@ -60,15 +64,12 @@ mv src/myScripts/* /usr/local/bin
 echo "done moving custom scripts to /usr/local/bin"
 
 # use own config hyrp
-sudo rm ~/components/hypr/hyprland.conf
 cp -r ~/components/hypr/{hyprland.conf,scripts} ~/.config/hypr
 
 # waybar config of the modular ones
-sudo rm ~/.local/share/waybar
-cp -r ~/components/waybar ~/.local/share
+cp -r ~/components/waybar ~/.local/share/waybar
 
 # waybar component
-sudo rm ~/.config/waybar
 cp -r ~/components/waybar2 ~/.config/waybar
 
 echo "installed waybar"
@@ -90,20 +91,18 @@ QT_FONT_NAME="JetBrainsMono Nerd Font Regular 11" your-qt-app
 
 # Permanent (Fish config.fish)
 echo 'set -gx QT_FONT_NAME "JetBrainsMono Nerd Font Regular 11"' >> ~/.config/fish/config.fish
-exec fish
 
 # Edit config
 echo "setting up font for kitty"
 echo 'font_family JetBrainsMono Nerd Font Mono' >> ~/.config/kitty/kitty.conf
 echo 'font_size 12' >> ~/.config/kitty/kitty.conf
 
-# Reload kitty (or restart)
-kitty @ reload-config
-
 echo "done with downloading and setting up fonts"
-
-sudo rm -rf dots .git components 
 
 echo "I highly recommend you to setup timeshift yourself"
 
-echo "\n now you can bring bck your stuff youve backed up like notes from elsewhere"
+echo "\n now you can bring bck your stuff youve backed uplike notes from elsewhere"
+
+echo "also remember to reboot system and restart kitty"
+
+echo "Can safely change shell right now"
