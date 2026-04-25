@@ -15,9 +15,6 @@
     /* Modify/add style in ~/.config/waybar/styles/ */
     @import "/home/astro/.local/share/waybar/styles/defaults.css";
 
-    /* Imports wallbash colors */
-    @import "/home/astro/.cache/hyde/wallbash/gtk.css";
-
     /* Colors and theme configuration is generated through the `theme.css` file */
     @import "theme.css";
 

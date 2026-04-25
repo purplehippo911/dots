@@ -95,6 +95,7 @@ echo 'set -gx QT_FONT_NAME "JetBrainsMono Nerd Font Regular 11"' >> ~/.config/fi
 
 # Edit config
 echo "setting up font for kitty"
+[ ! -f ~/.config/kitty ] && mkdir -p ~/.config/kitty
 echo 'font_family JetBrainsMono Nerd Font Mono' >> ~/.config/kitty/kitty.conf
 echo 'font_size 12' >> ~/.config/kitty/kitty.conf
 
@@ -103,10 +104,13 @@ echo "\n enabling sddm\n"
 sudo systemctl enable sddm
 echo "done with downloading and setting up fonts"
 
+# enabling audio
+echo "enabling audio"
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
+systemctl --user status pipewire pipewire-pulse wireplumber
+
 echo "I highly recommend you to setup timeshift yourself"
 
 echo "\n now you can bring bck your stuff youve backed uplike notes from elsewhere"
 
 echo "also remember to reboot system and restart kitty"
-
-echo "Can safely change shell right now"
