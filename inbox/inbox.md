@@ -478,3 +478,4 @@
 - make github repo for my dotfiles private
 - bytt bakgrunn
 - tmux plugins and how to imporve
+- spill den battle war greia. kan literally spille hva kan gjøre for å unngå ww2 osv

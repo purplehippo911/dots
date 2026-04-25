@@ -105,32 +105,17 @@ gzip
 fzf
 network manager
 font and icon download and set it up with that command as well. if possible setup in cli gtk and qt.
-
-- check all hidden files and rc like zshrc and p10k powerlevel
-- make re d me.
-- save waybar components if consider necessary enough
-- info: arch linux wayland
-- next time I'll do EVERYTHING from scratch. not rely on Hyde or other customisations. 
-- save hyprland configs
-- gotta save my scripts
-- back up all files. reinstall everything. use arch installer. no shame. can easilyer configure everything in matter of an hour.
-- backup .local folders necessary
-- backup usr folders and root other places.
-
-i wanna try out:
-- fish
-- other wm? or partitoiner? sway?
-- waybar replacement?
-- rofi alt? one that can run comms and apps like swaybar?
-- remember the themes and icons writing em down.
-
-file structure template
+waybar
+rofi
+fish
 
 Readme.md:
 - clone repo in home folder.
 - remove all other unused folders
+- downloaded sudo already
+- need fish installed
 - run install script
--   
+-  try to use fish for comms. if wanna run zsh script use it with zsh command. so can use fish for shell and zsh or scripting. but fishes syntax is more easier to use though. 
 
 install script should:
 - download all apps and files.
@@ -138,4 +123,14 @@ install script should:
 - source .zshrc and .vimrc and .tmuxrc. if possible restar or source .gitcredentials andgit config?  
 - move everything from .local/bin lib share etc into their local share etc. to avoid confusion would need to rename then remove the .local2 folder after done
 - move everything from .config into their .config and remove .config2 properly. can be problematic if they already have the config file for that app though then delete .config2. 
-- setup powerlevel10k 
+- just use fish
+- fix neovim plugin
+
+sync to browser with this key: abandon napkin pool wrist tiny goat embrace wire notable donkey glue drill know woman boring recipe gentle crush donor valid cost rough gasp spin regular
+browser extensions:
+dark reader
+tab manager auto
+proton pass
+popupoff overlay and popup blocker
+unhook
+vimium c
