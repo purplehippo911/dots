@@ -59,7 +59,7 @@ git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 echo "Done downloading nvim plugin"
 
 echo "moving custom scripts to /usr/local/bin"
-mv ~/src/myScripts/* /usr/local/bin
+sudo mv ~/src/myScripts/* /usr/local/bin
 
 echo "done moving custom scripts to /usr/local/bin"
 
