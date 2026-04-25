@@ -1,0 +1,2 @@
+- push to github al changes
+- save inbox to github or somewhere

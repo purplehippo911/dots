@@ -1,0 +1,46 @@
+/* User custom styles */
+* {
+   font-family: !important "JetBrainsMono Nerd Font", Font Awesome 6 Free;
+   font-size: !important 12px;
+  }
+#custom-vpn.vpn-tool {
+
+}
+
+#group-pill-right2 #custom-vpn {
+	color: red;
+	font-size: 160px;
+	padding: 20rem;
+
+}
+
+#group-pill-right2 #custom-vpn.vpn-tool {
+	color: lime;
+	font-size: 100px;
+	
+	padding: 20rem;
+}
+
+#group-pill-right2 .module-right #custom-vpn {
+	color: red;
+	font-size: 100px;
+	padding: 20rem;
+}
+
+#group-pill-right2 .module-right #custom-vpn.vpn-tool {
+	color: lime;
+	font-size: 100px;
+	
+	padding: 10rem;
+}
+
+window#waybar.right #pill-right {
+
+	padding: 10rem;
+
+}
+
+window#waybar.right #pill-right.vpn-tool {
+	padding: 10rem;
+
+}

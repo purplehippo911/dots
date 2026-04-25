@@ -1,7 +1,0 @@
-[user]
-	email = ocr12@duck.com
-	name = Astro
-[init]
-	defaultBranch = master
-[credential]
-	helper = store

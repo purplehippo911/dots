@@ -1,0 +1,33 @@
+#!/bin/sh
+
+action=$1
+
+case $action in
+    vol-up)
+        pamixer -i 5
+        vol=$(pamixer --get-volume)
+        notify-send -r 9999 "Volume" "${vol}%" -h int:value:$vol -i audio-volume-high
+        ;;
+    vol-down)
+        pamixer -d 5
+        vol=$(pamixer --get-volume) 
+        notify-send -r 9999 "Volume" "${vol}%" -h int:value:$vol -i audio-volume-low
+        ;;
+    vol-mute)
+        pamixer -t
+        if pamixer --get-mute | grep -q "true"; then
+            notify-send -r 9999 "Volume" "Muted" -h int:value:0 -i audio-volume-muted
+        else
+            vol=$(pamixer --get-volume)
+            notify-send -r 9999 "Volume" "${vol}%" -h int:value:$vol -i audio-volume-high
+        fi
+        ;;
+    mic-mute)
+        pamixer --default-source -t
+        if pamixer --default-source --get-mute | grep -q "true"; then
+            notify-send -r 8888 "Mic" "Muted" -i microphone-sensitivity-muted
+        else
+            notify-send -r 8888 "Mic" "On" -i microphone-sensitivity-high
+        fi
+        ;;
+esac

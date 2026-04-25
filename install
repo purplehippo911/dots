@@ -1,30 +1,113 @@
-#!/usr/bin/env fish
+#!/usr/bin/sh
 
-fish
+echo "\nBefore running this app you need sudo downloaded or have root privileges"
 
-if test $status -eq 1
-  echo "download fish possiblese"
-  exit error
-end
+sleep 3
+
+sudo pacman -S networkmanager
+systemctl start NetworkManager.service
+systemctl enable NetworkManager.service
+
+echo "\nmaking fish the default shell\n"
+sudo pacman -Syu
+sudo pacman -S fish
+chsh -s /usr/bin/fish
+mv config.fish ~/.config/fish/config.fish
+sleep 2
+exec fish
+
+echo "\nDone with fish\n"
 
 # moving all files inside dots out into home directory?
+echo "\nMoving files into home\n"
+shopt -s dotglob; mv ./* ../
+mv ./* ../
+echo "\nDone moving files into home\n"
 
-echo "Downloading..."
+echo "\nDownloading through pacman...\n"
 
-sudo pacman -Syyu hyprland yay qbittorrent nwg-look gimp inkscape mission-center imv hyprlock cliphist proton-vpn-cli dunst hypridle hyprsunset wireplumber pipewire tmux openssh mosh git github-cli glab zsh blueman bash wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make sudo rsync timeshift ollama fzf nodejs pnpm networkmanager waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim steam vlc xfce4-terminal network-manager-applet wallbash flameshot shotcut audacity awww blender krita kdeconnect pipewire virtualbox
+sudo pacman -S zsh brightnessctl networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync timeshift ollama fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox hypremoji discord komikku copyq qt6-declarative qt6-svg qt6-quickcontrols2
 
-yay -S brave-bin caffeine-ng-git komiku batch-rename paru wlogout 
+echo "\nDone with pacman\n"
 
+echo "\nDownlading through yay\n"
+yay -S brave-bin caffeine-ng-git wlogout webcord-equicord-git
+echo "Done with yay\n"
+
+echo "\nDownloading paru\n"
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+echo "\nDone downloading paru\n"
+
+echo "\nDownloading sddm theme\n"
 git clone https://github.com/ADIOR-enigma/hypr-sddm.git
 cd hypr-sddm
 sudo ./install.sh
 cd ../
 
+echo "\nDone downloading sddm theme\n"
+
+echo "Downloading nvchad nvim plugin"
 # Linux / MacOS (unix)
 rm -rf ~/.config/nvim
 rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+echo "Done downloading nvim plugin"
 
-#mving .config folders and .local folder into right spot and deleting old ones
+echo "moving custom scripts to /usr/local/bin"
+mv src/myScripts/* /usr/local/bin
+
+echo "done moving custom scripts to /usr/local/bin"
+
+# use own config hyrp
+sudo rm ~/components/hypr/hyprland.conf
+cp -r ~/components/hypr/{hyprland.conf,scripts} ~/.config/hypr
+
+# waybar config of the modular ones
+sudo rm ~/.local/share/waybar
+cp -r ~/components/waybar ~/.local/share
+
+# waybar component
+sudo rm ~/.config/waybar
+cp -r ~/components/waybar2 ~/.config/waybar
+
+echo "installed waybar"
+
+# font
+sudo fc-cache -fv
+
+# Global GTK3/4 font
+echo "setting up font for GTK3/4 apps"
+gsettings set org.gnome.desktop.interface font-name 'JetBrainsMono Nerd Font Regular 11'
+
+# GTK2 (older apps)
+echo "setting up font for GTK2 apps"
+echo "gtk-font-name=JetBrainsMono Nerd Font Regular 11" >> ~/.gtkrc-2.0
+
+# Per-session (temporary)
+echo "setting up font for QT apps"
+QT_FONT_NAME="JetBrainsMono Nerd Font Regular 11" your-qt-app
+
+# Permanent (Fish config.fish)
+echo 'set -gx QT_FONT_NAME "JetBrainsMono Nerd Font Regular 11"' >> ~/.config/fish/config.fish
+exec fish
+
+# Edit config
+echo "setting up font for kitty"
+echo 'font_family JetBrainsMono Nerd Font Mono' >> ~/.config/kitty/kitty.conf
+echo 'font_size 12' >> ~/.config/kitty/kitty.conf
+
+# Reload kitty (or restart)
+kitty @ reload-config
+
+echo "done with downloading and setting up fonts"
+
+sudo rm -rf dots .git components 
+
+echo "I highly recommend you to setup timeshift yourself"
+
+echo "\n now you can bring bck your stuff youve backed up like notes from elsewhere"
