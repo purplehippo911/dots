@@ -20,7 +20,7 @@ echo "\nDone moving files into home\n"
 
 echo "\nDownloading through pacman...\n"
 
-sudo pacman -S expac imagemagick gdu qt6-virtualkeyboard eza exa zsh brightnessctl networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh vim lazygit git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync timeshift ollama fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce4 vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox discord komikku copyq qt6-declarative qt6-svg qt6-base
+sudo pacman -S grim expac imagemagick gdu qt6-virtualkeyboard eza exa zsh brightnessctl networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh vim lazygit git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync timeshift ollama fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce4 vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox komikku copyq qt6-declarative qt6-svg qt6-base
 
 echo "\nDone with pacman\n"
 
@@ -31,7 +31,7 @@ cd yay
 makepkg -si
 
 echo "\nDownlading through yay\n"
-yay -S aether brave-bin caffeine-ng-git wlogout webcord-equicord-git hypremoji awww-bin
+yay -S aether brave-bin caffeine-ng-git wlogout hypremoji awww-bin
 echo "Done with yay\n"
 
 echo "\nDownloading paru\n"
@@ -108,6 +108,21 @@ echo "done with downloading and setting up fonts"
 echo "enabling audio"
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
 systemctl --user status pipewire pipewire-pulse wireplumber
+
+echo "done with audio"
+
+echo "downloading lemoncord (discord client but made in rust so more efficient)"
+
+ # Download from github
+git clone https://github.com/japandotorg/LemonCord.git
+cd LemonCord
+ 
+ # Build LemonCord
+cargo build --release
+
+sudo mv target/release/lemon-cord /usr/local/bin/LemonCord
+
+echo "done downloading lemoncord"
 
 echo "I highly recommend you to setup timeshift yourself"
 
