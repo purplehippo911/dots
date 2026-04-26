@@ -1,8 +1,22 @@
-- push to github al changes
-- save inbox to github or somewhere
+# My personal arch-linux dotfiles:
 
-what you need:
-- internet (networkmanager or ethernet cable)
-- git
-- a shell (i use fish/zsh)
+## Requirements:
 - sudo or root permissions
+- arch linux
+- git
+- internet/ethernet ofc
+
+## Installation
+
+** Clone this repo **:
+
+```sh
+git clone https://github.com/purplehippo911/dots.git
+```
+
+** Then execute the installer: **
+
+```sh
+./dots/install
+
+```
