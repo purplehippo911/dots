@@ -1,0 +1,13 @@
+{
+    "include": [
+        "/home/astro/.local/share/waybar/modules/custom-power.jsonc",
+        "/home/astro/.local/share/waybar/modules/vpn-status.jsonc",
+        "/home/astro/.local/share/waybar/modules/custom-updates.jsonc",
+        "/home/astro/.local/share/waybar/modules/clock.jsonc"
+    ],
+    "tray": {
+        "icon-size": 16,
+        "icon-size-multiplier": 1.6
+    },
+        "position": "top"
+}

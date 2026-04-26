@@ -1,0 +1,24 @@
+{
+	"custom/vpn": 
+	{
+    "return-type": "json",
+		"format": "{text}",
+		"tooltip": true,
+		"tooltip-format": "vpn and killswitch",
+ 		"exec": "~/.config/waybar/scripts/vpn-status.sh",
+		"interval": 5,
+		"return-type": "json",
+		"menu": "on-click",
+		"menu-file": "~/.local/share/waybar/menus/vpn-menu.xml",
+		"menu-actions": {
+			"toggleVpn": "~/.config/waybar/scripts/vpn-check.sh",
+			"toggleKs": "~/.config/waybar/scripts/killswitch-check.sh",
+			"statusVpn": "~/.config/waybar/scripts/vpn-menu-status.sh",
+			"statusKs": "~/.config/waybar/scripts/ks-menu-status.sh"
+		}
+ 		//"interval": 5,
+		//"format": "{text} {icon}",
+		//"return-type": "json",
+ 		//"on-click": "~/.config/waybar/scripts/vpn-check.sh"
+	}
+}
