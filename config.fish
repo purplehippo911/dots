@@ -8,6 +8,7 @@ alias --save ll='eza -lha --icons=auto --sort=name --group-directories-first' # 
 alias --save s='sudo'
  
 set -gx ULB '/usr/local/bin/'
+set -gx DOWNS '/home/astro/Downloads/'
 
 alias --save pvc='protonvpn connect'
 
