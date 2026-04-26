@@ -7,8 +7,8 @@ echo "\nBefore running this app you need sudo downloaded or have root privileges
 sleep 3
 
 sudo pacman -Syu
-mv config.fish ~/.config/fish/config.fish
-sleep 2
+[ ! -d ~/.config/fish ] && mkdir -p ~/.config/fish
+mv ./fish ~/.config/fish/
 
 echo "\nDone with fish\n"
 
