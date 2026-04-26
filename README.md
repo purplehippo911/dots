@@ -8,13 +8,13 @@
 
 ## Installation
 
-** Clone this repo **:
+**Clone this repo:**
 
 ```sh
 git clone https://github.com/purplehippo911/dots.git
 ```
 
-** Then execute the installer: **
+**Then execute the installer:**
 
 ```sh
 ./dots/install
