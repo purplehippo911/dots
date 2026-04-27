@@ -20,3 +20,9 @@ git clone https://github.com/purplehippo911/dots.git
 ./dots/install
 
 ```
+
+## File structure
+archive -- files dont usually use but want to save.
+proj -- working projects. move into archive when done.
+src -- resources that depend on frequently like assets/images/vids
+
