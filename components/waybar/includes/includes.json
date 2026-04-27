@@ -1,0 +1,13 @@
+{
+    "include": [
+        "modules/custom-power.jsonc",
+        "modules/vpn-status.jsonc",
+        "modules/custom-updates.jsonc",
+        "modules/clock.jsonc"
+    ],
+    "tray": {
+        "icon-size": 16,
+        "icon-size-multiplier": 1.6
+    },
+        "position": "top"
+}

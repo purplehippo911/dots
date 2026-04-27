@@ -4,6 +4,6 @@
     "rotate": 0,
     "tooltip": "true",
     "tooltip-format": "power button",
-    "execute": "wlogout"
+    "on-click": "wlogout"
   }
 }

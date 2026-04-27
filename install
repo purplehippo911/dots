@@ -67,15 +67,10 @@ echo "done moving custom scripts to /usr/local/bin"
 [ ! -d ~/.config/hypr ] && mkdir -p ~/.config/hypr
 cp -r ~/components/hypr/{hyprland.conf,scripts} ~/.config/hypr
 
-# waybar config of the modular ones
-[ ! -d ~/.local/share/waybar] && mkdir -p ~/.local/share/waybar
-
-cp -r ~/components/waybarLocal ~/.local/share/waybar
-
 # waybar component
 [ ! -d ~/.config/waybar] && mkdir -p ~/.config/waybar
 
-cp -r ~/components/waybarConfig ~/.config/waybar
+cp -r ~/components/waybar ~/.config/waybar
 
 echo "installed waybar"
 
