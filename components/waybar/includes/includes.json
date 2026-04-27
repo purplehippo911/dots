@@ -6,7 +6,8 @@
         "modules/clock.jsonc"
     ],
     "tray": {
-        "icon-size": 16,
+        "icon-size": 18,
+        "spacing": 8,
         "icon-size-multiplier": 1.6
     },
         "position": "top"

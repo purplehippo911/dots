@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Disk Manager
+Exec=gdu
+Type=Application
+Categories=disk;storage;

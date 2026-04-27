@@ -11,88 +11,37 @@ window#waybar {
 }
 
 #workspaces button {
-    box-shadow: none;
-    text-shadow: none;
-    padding: 0em;
     margin-top: 0.3em;
-    margin-bottom: 0.3em;
-    margin-left: 0em;
-    padding-left: 0.3em;
-    padding-right: 0.3em;
-    margin-right: 0em;
     color: @main-fg;
-    animation: ws_normal 20s ease-in-out 1;
 }
 
 #workspaces button.active {
     background: @wb-act-bg;
     color: @wb-act-fg;
-    margin-left: 0.3em;
-    padding-left: 1.2em;
-    padding-right: 1.2em;
     margin-right: 0.3em;
-    animation: ws_active 20s ease-in-out 1;
-    transition: all 0.4s cubic-bezier(.55, -0.68, .48, 1.682);
 }
 
 #workspaces button:hover {
     background: @wb-hvr-bg;
     color: @wb-hvr-fg;
-    animation: ws_hover 20s ease-in-out 1;
-    transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
 }
 
 #workspaces {
-	margin: 0 0.3rem;
+  border-style: solid;
+  border-color: #bada55;
+  padding: 0 1.5rem;
 }
 
-window#waybar.top .modules-left,
-window#waybar.top .modules-center,
-window#waybar.top .modules-right,
-window#waybar.bottom .modules-left,
-window#waybar.bottom .modules-center,
-window#waybar.bottom .modules-right {
-    padding-left: 0.3em;
-    padding-right: 0.3em;
-    margin-left: 0.3em;
-    margin-right: 0.3em;
+window#waybar label.module {
+    padding: 0 0.2em;
+    margin: 0 0.2em;
 }
 
-window#waybar.top label.module,
-window#waybar.bottom label.module {
-    padding-left: 0.2em;
-    padding-right: 0.2em;
-    margin-left: 0.2em;
-    margin-right: 0.2em;
-}
-
-window#waybar.left label.module,
-window#waybar.right label.module {
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-}
-
-window#waybar.top #pill {
+window#waybar #pill {
     padding: 0em 1em;
 }
 
 /* ? Dynamic button */
-
-window#waybar.top button,
-window#waybar.bottom button {
-    margin: 0.41em 0.11em;
-    border: 0em;
-    padding: 0.4em .8em; 
-
-}
-
-window#waybar.left button,
-window#waybar.right button {
-    margin: 0.11em 0.41em;
-    border: 0em;
-}
 
 tooltip {
     /* all: unset; */
@@ -114,8 +63,9 @@ window.popup decoration {
 }
 
 #tray {
-	margin-left: 0.3rem;
+  margin-left: 0.3rem;
 }
+
 #tray menu * {
     min-height: 1.6em;
 }
@@ -167,3 +117,20 @@ menu {
  margin-right: 2rem;
  padding: 0 1rem;
 }
+
+#battery:hover, #tray > *:hover, #clock:hover {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+#custom-power {
+  font-size: 1.9rem;
+  color: white;
+}
+
+#custom-power:hover,  .vpn-tool:hover {
+  color: yellow;
+  border-bottom: 2px solid white;
+}
+
+.vpn-tool {color: white;}

@@ -20,19 +20,9 @@ echo "\nDone moving files into home\n"
 
 echo "\nDownloading through pacman...\n"
 
-sudo pacman -S grim expac imagemagick gdu qt6-virtualkeyboard eza exa zsh brightnessctl networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh vim lazygit git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync timeshift ollama fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce4 vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox komikku copyq qt6-declarative qt6-svg qt6-base
+sudo pacman -S grim expac imagemagick breeze breeze-icons gdu qt6-virtualkeyboard eza exa zsh brightnessctl xplr networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh vim lazygit git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce4 vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox virtualbox-host-modules-arch komikku copyq qt6-declarative qt6-svg qt6-base qt5ct qt6ct-kde xdg-desktop-portal-gtk ttf-dejavu ttf-liberation noto-fonts adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts
 
 echo "\nDone with pacman\n"
-
-echo "\ndownloading yay \n"
-sudo pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-
-echo "\nDownlading through yay\n"
-yay -S aether brave-bin caffeine-ng-git wlogout hypremoji awww-bin
-echo "Done with yay\n"
 
 echo "\nDownloading paru\n"
 sudo pacman -S --needed base-devel
@@ -40,6 +30,10 @@ git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 echo "\nDone downloading paru\n"
+
+echo "\nDownlading through paru\n"
+paru -S webcord-equicord-git brave-bin caffeine-ng-git wlogout hypremoji awww-bin
+echo "Done with paru\n"
 
 echo "\nDownloading sddm theme\n"
 git clone https://github.com/ADIOR-enigma/hypr-sddm.git
@@ -79,14 +73,14 @@ sudo fc-cache -fv
 
 # Global GTK3/4 font
 echo "setting up font for GTK3/4 apps"
-gsettings set org.gnome.desktop.interface font-name 'JetBrainsMono Nerd Font Regular 11'
+gsettings set org.gnome.desktop.interface font-name 'Noto Sans CJK HK Regular 12'
 
 # GTK2 (older apps)
 echo "setting up font for GTK2 apps"
-echo "gtk-font-name=JetBrainsMono Nerd Font Regular 11" >> ~/.gtkrc-2.0
+echo "gtk-font-name=Noto Sans CJK HK Regular 12" >> ~/.gtkrc-2.0
 
 # Permanent (Fish config.fish)
-echo 'set -gx QT_FONT_NAME "JetBrainsMono Nerd Font Regular 11"' >> ~/.config/fish/config.fish
+echo 'set -gx QT_FONT_NAME "Noto Sans CJK HK Regular 12"' >> ~/.config/fish/config.fish
 
 # Edit config
 echo "setting up font for kitty"
@@ -105,6 +99,15 @@ systemctl --user enable --now pipewire pipewire-pulse wireplumber
 systemctl --user status pipewire pipewire-pulse wireplumber
 
 echo "done with audio"
+
+echo "sending gdu.desktop to /usr/local/bin so rofi can see it"
+[ ! -d /usr/share/applications ] && sudo mkdir -p /usr/share/applications
+mv ~/components/gdu.desktop /usr/share/applications
+echo "done with gdu setup"
+
+echo "setting up virtualbox"
+sudo modprobe vboxdrv
+echo "done with virtualbox"
 
 echo "I highly recommend you to setup timeshift yourself"
 
