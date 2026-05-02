@@ -11,3 +11,6 @@ expac -H M "%011m\t%-20n\t%10d" $(comm -23 <(pacman -Qqe | sort) <(pacman -Qqg b
 sudo du -d 1 -h /.
 
 (used spaceandroids font for wallpaper)
+
+# recommended apps
+lifeat is good for task tracking and focus
