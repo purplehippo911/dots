@@ -1,0 +1,14 @@
+#!/bin/fish
+
+set -l current_time (date +"%H")
+
+if test $current_time -ge 22 || test $current_time -lt 10
+  notify-send "Starting Hyprsunset"
+  hyprsunset -t 2000
+else if test $current_time -ge 10
+  notify-send "Turning off Hyprsunset"
+  hyprsunset -t 6000
+
+else 
+ notify-send "Hyprsunset didnt run well :from-custom-script"
+end
