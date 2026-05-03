@@ -20,7 +20,7 @@ echo "\nDone moving files into home\n"
 
 echo "\nDownloading through pacman...\n"
 
-sudo pacman -S usbutils pacman-contrib gnome-calculator grim expac imagemagick breeze breeze-icons gdu qt6-virtualkeyboard eza exa zsh brightnessctl yazi ex-vi-compat networkmanager hyprland qbittorrent nwg-look gimp inkscape mission-center imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh vim lazygit git github-cli glab blueman wine less ttf-jetbrains-mono-nerd unzip unrar tree-sitter-cli gcc make rsync fzf nodejs pnpm waybar rofi fish sddm kitty gsettings-qt6 dolphin ark neovim xfce4 vlc xfce4-terminal network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer virtualbox virtualbox-host-modules-arch komikku copyq qt6-declarative qt6-svg qt6-base qt5ct qt6ct-kde xdg-desktop-portal-gtk ttf-dejavu ttf-liberation noto-fonts adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts
+sudo pacman -S usbutils pacman-contrib gnome-calculator grim expac breeze breeze-icons gdu qt6-virtualkeyboard zsh brightnessctl yazi ex-vi-compat networkmanager hyprland nwg-look gimp inkscape imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh vim lazygit git github-cli glab blueman wine ttf-jetbrains-mono-nerd tree-sitter-cli gcc make rsync fzf waybar rofi fish sddm kitty gsettings-qt6 ark neovim vlc network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer komikku ktimetracker hyprshot copyq qt6-declarative qt6-svg qt6-base qt5ct qt6ct-kde xdg-desktop-portal-gtk ttf-dejavu ttf-liberation noto-fonts adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts swengine htop bc
 
 echo "\nDone with pacman\n"
 
@@ -32,7 +32,7 @@ makepkg -si
 echo "\nDone downloading paru\n"
 
 echo "\nDownlading through paru\n"
-paru -S webcord-equicord-git brave-bin caffeine-ng-git wlogout hypremoji awww-bin
+paru -S webcord-equicord-git brave-bin caffeine-ng-git wlogout hypremoji 
 echo "Done with paru\n"
 
 echo "\nDownloading sddm theme\n"
@@ -105,9 +105,18 @@ echo "sending gdu.desktop to /usr/local/bin so rofi can see it"
 mv ~/components/gdu.desktop /usr/share/applications
 echo "done with gdu setup"
 
-echo "setting up virtualbox"
-sudo modprobe vboxdrv
-echo "done with virtualbox"
+echo "setting up virtual-manager"
+sudo pacman -S virt-manager qemu-full libvirt dnsmasq ebtables bridge-utils openbsd-netcat libguestfs
+
+sudo systemctl enable --now libvirtd.service
+sudo systemctl enable --now libvirtd.socket  # For QEMU connections
+
+sudo usermod -aG libvirt $USER
+newgrp libvirt  # Or log out/in
+sudo virsh net-autostart default
+sudo systemctl restart libvirtd
+
+echo "done with virtual-machine download"
 
 echo "I highly recommend you to setup timeshift yourself"
 
