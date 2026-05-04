@@ -1,9 +1,0 @@
-{
-  "custom/power": {
-    "format": "⏻",
-    "rotate": 0,
-    "tooltip": "true",
-    "tooltip-format": "power button",
-    "on-click": "wlogout"
-  }
-}

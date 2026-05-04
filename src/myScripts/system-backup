@@ -1,4 +1,0 @@
-#!/bin/bash
-sudo rsync -aHAXv --progress --delete \ --exclude={"/dev/*","/proc/*", "/sys/*", "/srv/*", "/tmp/*",
- "/run/*", "/mnt/*", "/media/*", "/lost+found", 
-"/var/cache/*", "/var/tmp/*", "/var/run/*", "/var/lock/*", "/var/log/journal/*", "/home/astro/.cache/*", "/home/astro/.local/share/Trash/*", "/var/lib/pacman/sync/""} / /mnt/external/arch-backup-$(date +%Y%m%d)

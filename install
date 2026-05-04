@@ -8,7 +8,7 @@ sleep 3
 
 sudo pacman -Syu
 [ ! -d ~/.config/fish ] && mkdir -p ~/.config/fish
-mv ./fish ~/.config/fish/
+mv ./components/fish ~/.config/fish
 
 echo "\nDone with fish\n"
 
@@ -20,7 +20,7 @@ echo "\nDone moving files into home\n"
 
 echo "\nDownloading through pacman...\n"
 
-sudo pacman -S usbutils pacman-contrib gnome-calculator grim expac breeze breeze-icons gdu qt6-virtualkeyboard zsh brightnessctl yazi ex-vi-compat networkmanager hyprland nwg-look gimp inkscape imv cliphist proton-vpn-cli dunst wireplumber tmux openssh mosh vim lazygit git github-cli glab blueman wine ttf-jetbrains-mono-nerd tree-sitter-cli gcc make rsync fzf waybar rofi fish sddm kitty gsettings-qt6 ark neovim vlc network-manager-applet flameshot shotcut audacity awww blender krita kdeconnect pipewire man swaylock pamixer komikku ktimetracker hyprshot copyq qt6-declarative qt6-svg qt6-base qt5ct qt6ct-kde xdg-desktop-portal-gtk ttf-dejavu ttf-liberation noto-fonts adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts swengine htop bc
+sudo pacman -S usbutils pacman-contrib expac breeze breeze-icons gdu qt6-virtualkeyboard brightnessctl yazi ex-vi-compat networkmanager hyprland nwg-look gimp inkscape imv cliphist proton-vpn-cli bat fd dunst wireplumber tmux openssh mosh vim lazygit git github-cli glab blueman wine ttf-jetbrains-mono-nerd tree-sitter-cli gcc make rsync fzf waybar rofi fish sddm kitty gsettings-qt6 ark neovim vlc network-manager-applet kdenlive audacity awww blender krita kdeconnect pipewire man swaylock pamixer komikku ktimetracker hyprshot copyq qt6-declarative qt6-svg qt6-base qt5ct qt6ct-kde xdg-desktop-portal-gtk ttf-dejavu ttf-liberation noto-fonts adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts swengine htop bc
 
 echo "\nDone with pacman\n"
 
@@ -53,7 +53,7 @@ git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 echo "Done downloading nvim plugin"
 
 echo "moving custom scripts to /usr/local/bin"
-sudo mv ~/src/myScripts/* /usr/local/bin
+sudo mv components/bin /usr/local/bin
 
 echo "done moving custom scripts to /usr/local/bin"
 

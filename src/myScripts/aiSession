@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-tmux new-session -d -s ai
-tmux send-keys -t ai:0.0 "ollama serve" Enter
-tmux new-window -t ai
-tmux send-keys -t ai:1.0 "ollama run qwen2.5:3b" Enter
-exec kitty -e tmux attach-session -t ai
