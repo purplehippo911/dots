@@ -20,7 +20,7 @@ echo "\nDone moving files into home\n"
 
 echo "\nDownloading through pacman...\n"
 
-sudo pacman -S usbutils zsh fish pacman-contrib expac breeze breeze-icons gdu qt6-virtualkeyboard brightnessctl yazi ex-vi-compat networkmanager hyprland nwg-look gimp inkscape imv cliphist proton-vpn-cli bat fd dunst wireplumber tmux openssh mosh vim lazygit github-cli glab blueman wine ttf-jetbrains-mono-nerd tree-sitter-cli gcc make rsync fzf waybar rofi fish sddm kitty gsettings-qt6 ark neovim vlc network-manager-applet kdenlive audacity awww blender krita kdeconnect pipewire man swaylock pamixer komikku ktimetracker hyprshot copyq qt6-declarative qt6-svg qt6-base qt5ct qt6ct-kde xdg-desktop-portal-gtk ttf-dejavu ttf-liberation noto-fonts adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts htop bc
+sudo pacman -S noto-fonts-cjk usbutils zsh fish pacman-contrib expac breeze breeze-icons gdu qt6-virtualkeyboard brightnessctl yazi ex-vi-compat networkmanager hyprland nwg-look gimp inkscape imv cliphist proton-vpn-cli bat fd dunst wireplumber tmux openssh mosh vim lazygit github-cli glab blueman wine ttf-jetbrains-mono-nerd tree-sitter-cli gcc make rsync fzf waybar rofi fish sddm kitty gsettings-qt6 ark neovim vlc network-manager-applet kdenlive audacity awww blender krita kdeconnect pipewire man swaylock pamixer komikku ktimetracker hyprshot copyq qt6-declarative qt6-svg qt6-base qt5ct qt6ct-kde xdg-desktop-portal-gtk ttf-dejavu ttf-liberation noto-fonts adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts htop bc
 
 echo "\nDone with pacman\n"
 
