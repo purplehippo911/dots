@@ -30,3 +30,16 @@ nvm alias default 18  # Set as default (optional)
 
 then ```exec fish```
 
+
+# work with phone
+needed packages mtpfs gvfs-mtp (pacman), jmtpfs (AUR)
+
+make mount points
+
+jmtpfs <mount-path>
+
+now cd into and copy whateve or movehwtever files you want
+
+then umount like normal the directory not using
+
+lsusb to see if connected
