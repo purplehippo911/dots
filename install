@@ -41,7 +41,7 @@ makepkg -si
 echo "\nDone downloading paru\n"
 
 echo "\nDownlading through paru\n"
-paru -S jmtpfs webcord-equicord-git brave-bin caffeine-ng-git wlogout hypremoji qt6ct-kde
+paru -S kclock jmtpfs webcord-equicord-git brave-bin caffeine-ng-git wlogout hypremoji qt6ct-kde
 echo "Done with paru\n"
 
 echo "\nDownloading sddm theme\n"
